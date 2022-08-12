@@ -5,18 +5,14 @@ with open('data.json') as file:
 
 print('Posicion actual: ', data)
 
-def nuevaPos():
-  valueX1 = int(input("Ingrese la nueva posicion x Motor 1: "))
-  valueY1 = int(input("Ingrese la nueva posicion y Motor 1: "))
-  data['Motor1']['x'] = valueX1
-  data['Motor1']['y'] = valueY1
-  valueX2 = int(input("Ingrese la nueva posicion x Motor 2: "))
-  valueY2 = int(input("Ingrese la nueva posicion y Motor 2: "))
-  data['Motor2']['x'] = valueX2
-  data['Motor2']['y'] = valueY2
+def nuevaPos(motor):
+  valueX = int(input(f"Ingrese la nueva posicion x del {motor} : "))
+  valueY = int(input(f"Ingrese la nueva posicion y del {motor} : "))
+  data[motor]['x'] = valueX
+  data[motor]['y'] = valueY
   print (data)
 
-nuevaPos()
+nuevaPos("Motor2")
 
 with open('data.json', 'w') as file:
     json.dump(data, file)
