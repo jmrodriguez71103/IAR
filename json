@@ -1,0 +1,18 @@
+import json
+
+with open('data.json') as file:
+    data = json.load(file)
+
+print('Posicion actual: ', data)
+
+def nuevaPos():
+  valueX = int(input("Ingrese la nueva posicion X: "))
+  valueY = int(input("Ingrese la nueva posicion Y: "))
+  data['posicion']['x'] = valueX
+  data['posicion']['y'] = valueY
+  print (data)
+
+nuevaPos()
+
+with open('data.json', 'w') as file:
+    json.dump(data, file)
