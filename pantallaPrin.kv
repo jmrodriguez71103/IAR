@@ -1,0 +1,172 @@
+Screen:
+	MDCard:
+		size_hint: 0.506, 1
+		pos_hint: {"center_x": 0.25, "center_y": 0.5}
+		padding: 15
+		spacing: 25
+		orientation: 'vertical'
+		md_bg_color: 0.18, 0.23, 0.59, 0.9
+		
+		
+		MDGridLayout:
+			size_hint: 1, 1
+			pos_hint: {"center_x": 0.5, "center_y": 0.5}
+			cols: 5
+			rows: 5
+
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+				
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: cambio_y.text = grados.text if grados.text < "100" else pos_y.text
+				Image:
+					source: "FlechaArriba.png"	
+		
+			MDLabel:
+				text: ""
+
+			MDLabel:
+				text: ""
+			
+			MDLabel:
+				text: ""
+		
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: cambio_x.text = grados.text if grados.text < "180" else pos_x.text
+				Image:
+					source: "FlechaIzq.png"	
+			MDLabel:
+				text: ""
+
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: cambio_x.text = grados.text if grados.text < "180" else pos_x.text
+				Image:
+					source: "FlechaDerecha.png"	
+					
+			MDLabel:
+				text: ""
+			
+			MDLabel:
+				text: ""
+			
+			MDLabel:
+				text: ""
+			
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: cambio_y.text = grados.text if grados.text < "100" else pos_y.text
+				Image:
+					source: "FlechaAbajo.png"	
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+				
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+	MDCard:
+		size_hint: 0.506, 1
+		pos_hint: {"center_x": 0.75, "center_y": 0.5}
+		padding: 15
+		spacing: 25
+		orientation: 'vertical'
+		md_bg_color: 0.18, 0.23, 0.59, 0.9 
+
+		
+		
+		MDTextField:
+			id: grados
+			hint_text: "Grados"
+			text_color:"White"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+		MDLabel:
+			text: ""
+			
+			
+			
+		MDLabel:
+			id: estado
+			text: "Estado"
+			font_size: 40
+			halign: 'center'
+			size_hint_y: None
+			padding_y: 10
+
+		
+		MDTextField:
+			id: pos_x
+			text: app.text_x
+			hint_text: "Ascension recta"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+	
+	
+		MDTextField:
+			id: pos_y
+			text: app.text_y
+			hint_text: "Declinacion"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+			
+		MDLabel:
+			id: actualizarm
+			text: "Actualizar Manualmente"
+			font_size: 40
+			halign: 'center'
+			size_hint_y: None
+			padding_y: 10
+
+			
+		MDTextField:
+			id: cambio_x
+			text: pos_x.text
+			hint_text: "Ascension recta"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+	
+
+		MDTextField:
+			id: cambio_y
+			text: pos_y.text
+			hint_text: "Declinacion"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
