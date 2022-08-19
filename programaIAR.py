@@ -19,6 +19,22 @@ class programaIAR(MDApp):
 	def save(self):
 		with open('data.json', 'w') as file:
 	 		json.dump(self.data, file)
+	 		
+	def mod_x_add(self):
+		if (self.root.ids.pos_x.text >= "0" and self.root.ids.pos_x.text < "180"):
+			self.root.ids.pos_x.text = str(int(self.root.ids.pos_x.text) + int(self.root.ids.grados.text))
+		
+	def mod_x_remove(self):
+		if (self.root.ids.pos_x.text > "0" and self.root.ids.pos_x.text <= "180"):
+			self.root.ids.pos_x.text = str(int(self.root.ids.pos_x.text) - int(self.root.ids.grados.text))
+		
+	def mod_y_add(self):
+		if (self.root.ids.pos_y.text >= "0" and self.root.ids.pos_y.text < "180"):
+			self.root.ids.pos_y.text = str(int(self.root.ids.pos_y.text) + int(self.root.ids.grados.text))
+			
+	def mod_y_remove(self):
+		if (self.root.ids.pos_y.text > "0" and self.root.ids.pos_y.text <= "180"):
+			self.root.ids.pos_y.text = str(int(self.root.ids.pos_y.text) - int(self.root.ids.grados.text))
 
 	def build (self):
 		self.theme_cls.theme_style = "Light"
