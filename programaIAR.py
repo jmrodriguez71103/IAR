@@ -17,8 +17,10 @@ class programaIAR(MDApp):
 		return y
 
 	def save(self):
+		self.data["x"] = self.root.ids.pos_x.text
+		self.data["y"] = self.root.ids.pos_y.text
 		with open('data.json', 'w') as file:
-	 		json.dump(self.data, file)
+			json.dump(self.data, file)
 	 		
 	def mod_x_add(self):
 		if (self.root.ids.pos_x.text >= "0" and self.root.ids.pos_x.text < "180"):
