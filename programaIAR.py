@@ -43,6 +43,7 @@ class programaIAR(MDApp):
 		self.theme_cls.primary_palette = "Blue"
 		self.text_x = self.open_x()
 		self.text_y = self.open_y()
+		#self.text_x, self.text_y = self.open_x(), self.open_y()
 		return Builder.load_file('pantallaPrin.kv')
 
 		
