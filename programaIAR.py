@@ -8,13 +8,10 @@ class programaIAR(MDApp):
 	with open('data.json') as file:
 		data = json.load(file)
 
-	def open_x (self):
-		x = self.data["x"]
-		return x	
+	def open_direction (self, direction):
+		direction = self.data[direction]
+		return direction
 
-	def open_y (self):
-		y = self.data["y"]
-		return y
 
 	def save(self):
 		if (self.root.ids.cambio_x.text == "" and self.root.ids.cambio_y.text == ""):
@@ -29,52 +26,53 @@ class programaIAR(MDApp):
 				json.dump(self.data, file)
 	 		
 	def mod_x_add(self):
-		if (self.root.ids.pos_x.text >= "0" and self.root.ids.pos_x.text < "180"):
+		#direc = direction.replace('"', '')
+		if (int(self.root.ids.pos_x.text) >= 0 and int(self.root.ids.pos_x.text) < 180):
 			self.root.ids.pos_x.text = str(int(self.root.ids.pos_x.text) + int(self.root.ids.grados.text))
 		
-		elif (self.root.ids.pos_x.text > "180"):
+		elif (int(self.root.ids.pos_x.text) > 180):
 			self.root.ids.pos_x.text = "180"
 			
-		elif (self.root.ids.pos_x.text < "0"):
+		elif (int(self.root.ids.pos_x.text) < 0):
 			self.root.ids.pos_x.text = "0"
 
 		
 	def mod_x_remove(self):
-		if (self.root.ids.pos_x.text > "0" and self.root.ids.pos_x.text <= "180"):
+		if (int(self.root.ids.pos_x.text) > 0 and int(self.root.ids.pos_x.text) <= 180):
 			self.root.ids.pos_x.text = str(int(self.root.ids.pos_x.text) - int(self.root.ids.grados.text))
 		
-		elif (self.root.ids.pos_x.text > "180"):
+		elif (int(self.root.ids.pos_x.text) > 180):
 			self.root.ids.pos_x.text = "180"
 			
-		elif (self.root.ids.pos_x.text < "0"):
+		elif (int(self.root.ids.pos_x.text) < 0):
 			self.root.ids.pos_x.text = "0"
 		
 	def mod_y_add(self):
-		if (self.root.ids.pos_y.text >= "0" and self.root.ids.pos_y.text < "180"):
+		if (int(self.root.ids.pos_y.text) >= 0 and int(self.root.ids.pos_y.text) < 180):
 			self.root.ids.pos_y.text = str(int(self.root.ids.pos_y.text) + int(self.root.ids.grados.text))
 		
-		elif (self.root.ids.pos_x.text > "180"):
-			self.root.ids.pos_x.text = "180"
+		elif (int(self.root.ids.pos_y.text) > 180):
+			self.root.ids.pos_y.text = "180"
 			
-		elif (self.root.ids.pos_x.text < "0"):
-			self.root.ids.pos_x.text = "0"		
+		elif (int(self.root.ids.pos_y.text) < 0):
+			self.root.ids.pos_y.text = "0"		
 	
 	def mod_y_remove(self):
-		if (self.root.ids.pos_y.text > "0" and self.root.ids.pos_y.text <= "180"):
+		if (int(self.root.ids.pos_y.text) > 0 and int(self.root.ids.pos_y.text) <= 180):
 			self.root.ids.pos_y.text = str(int(self.root.ids.pos_y.text) - int(self.root.ids.grados.text))
 
-		elif (self.root.ids.pos_x.text > "180"):
-			self.root.ids.pos_x.text = "180"
+		elif (int(self.root.ids.pos_y.text) > 180):
+			self.root.ids.pos_y.text = "180"
 			
-		elif (self.root.ids.pos_x.text < "0"):
-			self.root.ids.pos_x.text = "0"
+		elif (int(self.root.ids.pos_y.text) < 0):
+			self.root.ids.pos_y.text = "0"
 	
 	def build (self):
 		self.theme_cls.theme_style = "Light"
 		self.theme_cls.primary_palette = "BlueGray"
-		#self.text_x = self.open_x()
-		#self.text_y = self.open_y()
-		self.text_x, self.text_y = self.open_x(), self.open_y()
+		self.text_x = self.open_direction("x")
+		self.text_y = self.open_direction("y")
+		#self.text_x, self.text_y = self.open_x(), self.open_y()
 		return Builder.load_file('pantallaPrin.kv')
 
 		
