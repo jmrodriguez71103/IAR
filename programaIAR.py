@@ -26,9 +26,12 @@ class programaIAR(MDApp):
 				json.dump(self.data, file)
 	 		
 	def mod_x_add(self):
-		#direc = direction.replace('"', '')
+		calculo = str(int(self.root.ids.pos_x.text) + int(self.root.ids.grados.text))
 		if (int(self.root.ids.pos_x.text) >= 0 and int(self.root.ids.pos_x.text) < 180):
-			self.root.ids.pos_x.text = str(int(self.root.ids.pos_x.text) + int(self.root.ids.grados.text))
+			if (int(calculo) <= 180):
+				self.root.ids.pos_x.text = calculo
+			else:
+				self.root.ids.pos_x.text = "180"
 		
 		elif (int(self.root.ids.pos_x.text) > 180):
 			self.root.ids.pos_x.text = "180"
@@ -38,8 +41,12 @@ class programaIAR(MDApp):
 
 		
 	def mod_x_remove(self):
+		calculo = str(int(self.root.ids.pos_x.text) - int(self.root.ids.grados.text))
 		if (int(self.root.ids.pos_x.text) > 0 and int(self.root.ids.pos_x.text) <= 180):
-			self.root.ids.pos_x.text = str(int(self.root.ids.pos_x.text) - int(self.root.ids.grados.text))
+			if (int(calculo) >= 0):
+				self.root.ids.pos_x.text = calculo
+			else:
+				self.root.ids.pos_x.text = "0"
 		
 		elif (int(self.root.ids.pos_x.text) > 180):
 			self.root.ids.pos_x.text = "180"
@@ -48,21 +55,29 @@ class programaIAR(MDApp):
 			self.root.ids.pos_x.text = "0"
 		
 	def mod_y_add(self):
-		if (int(self.root.ids.pos_y.text) >= 0 and int(self.root.ids.pos_y.text) < 180):
-			self.root.ids.pos_y.text = str(int(self.root.ids.pos_y.text) + int(self.root.ids.grados.text))
-		
-		elif (int(self.root.ids.pos_y.text) > 180):
-			self.root.ids.pos_y.text = "180"
+		calculo = str(int(self.root.ids.pos_y.text) + int(self.root.ids.grados.text))
+		if (int(self.root.ids.pos_y.text) >= 0 and int(self.root.ids.pos_y.text) < 90):
+			if (int(calculo) <= 90):
+				self.root.ids.pos_y.text = calculo
+			else:
+				self.root.ids.pos_y.text = "90"
+				
+		elif (int(self.root.ids.pos_y.text) > 90):
+			self.root.ids.pos_y.text = "90"
 			
 		elif (int(self.root.ids.pos_y.text) < 0):
 			self.root.ids.pos_y.text = "0"		
 	
 	def mod_y_remove(self):
-		if (int(self.root.ids.pos_y.text) > 0 and int(self.root.ids.pos_y.text) <= 180):
-			self.root.ids.pos_y.text = str(int(self.root.ids.pos_y.text) - int(self.root.ids.grados.text))
+		calculo = str(int(self.root.ids.pos_y.text) - int(self.root.ids.grados.text))
+		if (int(self.root.ids.pos_y.text) > 0 and int(self.root.ids.pos_y.text) <= 90):
+			if (int(calculo) >= 0):
+				self.root.ids.pos_y.text = calculo
+			else:
+				self.root.ids.pos_y.text = "0"
 
-		elif (int(self.root.ids.pos_y.text) > 180):
-			self.root.ids.pos_y.text = "180"
+		elif (int(self.root.ids.pos_y.text) > 90):
+			self.root.ids.pos_y.text = "90"
 			
 		elif (int(self.root.ids.pos_y.text) < 0):
 			self.root.ids.pos_y.text = "0"
