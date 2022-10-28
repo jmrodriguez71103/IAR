@@ -1,0 +1,193 @@
+Screen:
+	MDBoxLayout:
+		size: 1, 0.15
+		orientation: "horizontal"
+		md_bg_color: 1, 1, 1, 1
+		background_normal: ""
+		FloatLayout:
+			id: flayout
+			padding:5
+
+
+			Image:
+				source: "Iar-logo.png"
+				pos_hint: {"center_x": .25, "center_y": .9}
+
+	MDCard:
+		size_hint: 0.507, 0.85
+		pos_hint: {"center_x": 0.25, "center_y": 0.41}
+		padding: 15
+		spacing: 25
+		orientation: 'vertical'
+		md_bg_color: 0.18, 0.23, 0.59, 0.9
+
+
+		MDGridLayout:
+			size_hint: 1, 1
+			pos_hint: {"center_x": 0.5, "center_y": 0.5}
+			cols: 5
+			rows: 5
+
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: app.mod_y_add()
+				Image:
+					source: "FlechaArriba.png"
+
+			MDLabel:
+				text: ""
+
+			MDLabel:
+				text: ""
+
+			MDLabel:
+				text: ""
+
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: app.mod_x_remove()
+				Image:
+					source: "FlechaIzq.png"
+			MDLabel:
+				text: ""
+
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: app.mod_x_add()
+				Image:
+					source: "FlechaDerecha.png"
+
+			MDLabel:
+				text: ""
+
+			MDLabel:
+				text: ""
+
+			MDLabel:
+				text: ""
+
+			MDFlatButton:
+				size_hint: .1, .1
+				on_press: app.mod_y_remove()
+				Image:
+					source: "FlechaAbajo.png"
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+			MDLabel:
+				text: ""
+	MDCard:
+		size_hint: 0.507, .85
+		pos_hint: {"center_x": 0.75, "center_y": 0.41}
+		padding: 15
+		spacing: 5
+		orientation: 'vertical'
+		md_bg_color: 0.18, 0.23, 0.59, 0
+
+
+		MDTextField:
+			markup:True
+			id: grados
+			hint_text: "Grados"
+			text: "0"
+			size_hint: None, None
+			#line_color_focus: 1, 1, 1, 1
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+
+		MDLabel:
+			markup: True
+			id: estado
+			text: "[color=#303f9f]Estado[/color]"
+			font_size: 35
+			halign: 'center'
+			size_hint_y: None
+			padding_y: 5
+
+
+		MDTextField:
+			id: pos_x
+			text: app.text_x
+			hint_text: "Ascension recta"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+
+
+		MDTextField:
+			id: pos_y
+			text: app.text_y
+			hint_text: "Declinacion"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+
+		MDLabel:
+			markup: True
+			id: actualizarm
+			text: "[color=#303f9f]Actualizar Manualmente[/color]"
+			font_size: 35
+			halign: 'center'
+			size_hint_y: None
+			padding_y: 10
+
+
+		MDTextField:
+			id: cambio_x
+
+			hint_text: "Ascension recta"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+
+
+		MDTextField:
+			id: cambio_y
+
+			hint_text: "Declinacion"
+			size_hint: None, None
+			width: 200
+			font_size: 16
+			pos_hint: {"center_x": 0.5}
+
+		MDRectangleFlatButton:
+			id: save
+			text: "Enviar datos"
+			width: 200
+			height: 100
+			pos_hint: {"center_x": 0.5}
+			on_press: app.save()
