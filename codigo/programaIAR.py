@@ -93,7 +93,7 @@ class programaIAR(MDApp):
 		self.theme_cls.primary_palette = "BlueGray"
 		self.text_x = self.open_direction("x")
 		self.text_y = self.open_direction("y")
-		return Builder.load_file('pantallaPrin.kv')
+		return Builder.load_file('pantalla.kv')
 
 		
 
