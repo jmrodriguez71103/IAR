@@ -54,6 +54,8 @@ class programaIAR(MDApp):
 		else:
 			self.data["x"] = self.root.ids.cambio_x.text
 			self.data["y"] = self.root.ids.cambio_y.text
+      self.root.ids.pos_x.text = self.data["x"]
+      self.root.ids.pos_y.text = self.data["y"]
 			with open('data.json', 'w') as file:
 				json.dump(self.data, file)
 
